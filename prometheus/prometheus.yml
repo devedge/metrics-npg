@@ -1,0 +1,50 @@
+global:
+  # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  scrape_interval: 15s
+  # Evaluate rules every 15 seconds. The default is every 1 minute.
+  evaluation_interval: 15s
+  # scrape_timeout is set to the global default (10s).
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  - job_name: "prometheus"
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
+    static_configs:
+      - targets: ["0.0.0.0:9090"]
+
+  # Netdata to Prometheus metrics for both ivymike and cyberups
+  - job_name: "netdata"
+    metrics_path: "/api/v1/allmetrics"
+    params:
+      format: [prometheus]
+      source: [average]
+    honor_labels: true
+    static_configs:
+      - targets: ["192.168.2.39:19999"]
+
+  # Graphite to Prometheus exporter for FreeNAS data
+  - job_name: "freenas"
+    honor_labels: true
+    static_configs:
+      - targets: ["192.168.2.39:9108"]
+
+  # SNMP to Prometheus exporter for EdgeRouter metrics
+  # Copied & modified these configs from https://github.com/prometheus/snmp_exporter
+  - job_name: "edgerouter"
+    static_configs:
+      - targets:
+          - 192.168.1.1 # EdgeRouter device
+    metrics_path: /snmp
+    params:
+      module:
+        - edgerouter
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: snmp-exporter:9116 # The SNMP exporter's real hostname:port.

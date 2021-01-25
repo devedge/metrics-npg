@@ -1,0 +1,50 @@
+version: "3"
+services:
+  prometheus:
+    build: prometheus/
+    restart: unless-stopped
+    command:
+      # All defined in prometheus image, and obtained with a 'ps' in the container.
+      # The 'command:' docker-compose attribute overwrites all default CLI options
+      # defined in the default image, so they need to be re-included.
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus
+      - --web.console.libraries=/usr/share/prometheus/console_libraries
+      - --web.console.templates=/usr/share/prometheus/consoles
+      - --storage.tsdb.retention.time=1y # Max time of metrics is 1 year
+    ports:
+      - 9090:9090
+    volumes:
+      - "/mnt/nas-share/Prometheus:/prometheus:rw" # Store Prometheus metrics on NAS
+      - "/etc/localtime:/etc/localtime:ro" # Keep container time synced with host
+
+  graphite-exporter:
+    image: prom/graphite-exporter:v0.9.0
+    restart: unless-stopped
+    ports:
+      - 9108:9108 # expose exported metrics for Prometheus
+      - 2003:9109 # ingest Graphite metrics from FreeNAS
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+
+  snmp-exporter:
+    build: snmp-exporter/
+    restart: unless-stopped
+    command:
+      - --config.file=/snmp.yml
+    ports:
+      - 9116:9116
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+
+  grafana:
+    build: grafana/
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    volumes:
+      - grafana-lib:/var/lib/grafana
+      - "/etc/localtime:/etc/localtime:ro"
+
+volumes:
+  grafana-lib: {}

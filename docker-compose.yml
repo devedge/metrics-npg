@@ -15,7 +15,7 @@ services:
     ports:
       - 9090:9090
     volumes:
-      - prometheus-data:/prometheus:rw
+      - prometheus-data:/prometheus
       - "/etc/localtime:/etc/localtime:ro" # Keep container time synced with host
 
   graphite-exporter:

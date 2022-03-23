@@ -11,11 +11,11 @@ services:
       - --storage.tsdb.path=/prometheus
       - --web.console.libraries=/usr/share/prometheus/console_libraries
       - --web.console.templates=/usr/share/prometheus/consoles
-      - --storage.tsdb.retention.time=1y # Max time of metrics is 1 year
+      - --storage.tsdb.retention.time=2m # Max time of metrics is 2 months
     ports:
       - 9090:9090
     volumes:
-      - "/mnt/nas-share/Prometheus:/prometheus:rw" # Store Prometheus metrics on NAS
+      - prometheus-data:/prometheus:rw
       - "/etc/localtime:/etc/localtime:ro" # Keep container time synced with host
 
   graphite-exporter:
@@ -48,3 +48,4 @@ services:
 
 volumes:
   grafana-lib: {}
+  prometheus-data: {}

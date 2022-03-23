@@ -1,0 +1,1616 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 4,
+  "links": [],
+  "panels": [
+    {
+      "aliasColors": {
+        "Interrupt": "purple",
+        "servers_freenas_local_aggregation_cpu_average_percent_interrupt{instance=\"ivymike:9108\", job=\"freenas\"}": "purple",
+        "servers_freenas_local_aggregation_cpu_average_percent_system{instance=\"ivymike:9108\", job=\"freenas\"}": "green",
+        "servers_freenas_local_aggregation_cpu_average_percent_user{instance=\"ivymike:9108\", job=\"freenas\"}": "blue"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "hiddenSeries": false,
+      "id": 8,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "servers_freenas_local_aggregation_cpu_average_percent_system",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "System",
+          "refId": "B"
+        },
+        {
+          "expr": "servers_freenas_local_aggregation_cpu_average_percent_interrupt",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Interrupt",
+          "refId": "A"
+        },
+        {
+          "expr": "servers_freenas_local_aggregation_cpu_average_percent_user",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "User",
+          "refId": "C"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "CPU",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "percent",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 10,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["mean"],
+          "values": false
+        }
+      },
+      "pluginVersion": "7.0.0",
+      "targets": [
+        {
+          "expr": "servers_freenas_local_memory_memory_active",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Active",
+          "refId": "A"
+        },
+        {
+          "expr": "servers_freenas_local_memory_memory_cache",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Cache",
+          "refId": "B"
+        },
+        {
+          "expr": "servers_freenas_local_zfs_arc_cache_size_arc",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "ARC",
+          "refId": "C"
+        },
+        {
+          "expr": "servers_freenas_local_zfs_arc_cache_size_L2",
+          "interval": "",
+          "legendFormat": "L2",
+          "refId": "D"
+        },
+        {
+          "expr": "servers_freenas_local_memory_in",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "E"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Memory",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "aliasColors": {
+        "Recieved": "green",
+        "Sent": "red"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 5,
+        "w": 8,
+        "x": 0,
+        "y": 4
+      },
+      "hiddenSeries": false,
+      "id": 17,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "servers_freenas_local_interface_ix0_if_packets_rx",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Recieved",
+          "refId": "A"
+        },
+        {
+          "expr": "servers_freenas_local_interface_ix0_if_packets_tx",
+          "interval": "",
+          "legendFormat": "Sent",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Network (ix0)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "KBs",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "ada0 delete": "purple",
+        "ada0 read": "green",
+        "ada0 write": "red",
+        "ada0_delete": "purple",
+        "ada0_read": "green",
+        "ada0_write": "red",
+        "ada1 delete": "purple",
+        "ada1 read": "green",
+        "ada1 write": "red",
+        "ada1_delete": "purple",
+        "ada1_read": "green",
+        "ada1_write": "red",
+        "ada2 delete": "purple",
+        "ada2 read": "green",
+        "ada2 write": "red",
+        "ada2_delete": "purple",
+        "ada2_read": "green",
+        "ada2_write": "red",
+        "ada3 delete": "purple",
+        "ada3 read": "green",
+        "ada3 write": "red",
+        "ada3_delete": "purple",
+        "ada3_read": "green",
+        "ada3_write": "red",
+        "ada4 delete": "purple",
+        "ada4 read": "green",
+        "ada4 write": "red",
+        "ada4_delete": "purple",
+        "ada4_read": "green",
+        "ada4_write": "red",
+        "ada5 delete": "purple",
+        "ada5 read": "green",
+        "ada5 write": "red",
+        "ada5_delete": "purple",
+        "ada5_read": "green",
+        "ada5_write": "red"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 5,
+        "w": 8,
+        "x": 8,
+        "y": 4
+      },
+      "hiddenSeries": false,
+      "id": 26,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "servers_freenas_local_geom_stat_geom_latency_ada0_read",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "ada0_read",
+          "refId": "B"
+        },
+        {
+          "expr": "servers_freenas_local_geom_stat_geom_latency_ada1_read",
+          "interval": "",
+          "legendFormat": "ada1_read",
+          "refId": "E"
+        },
+        {
+          "expr": "servers_freenas_local_geom_stat_geom_latency_ada2_read",
+          "interval": "",
+          "legendFormat": "ada2_read",
+          "refId": "H"
+        },
+        {
+          "expr": "servers_freenas_local_geom_stat_geom_latency_ada3_read",
+          "interval": "",
+          "legendFormat": "ada3_read",
+          "refId": "K"
+        },
+        {
+          "expr": "servers_freenas_local_geom_stat_geom_latency_ada4_read",
+          "interval": "",
+          "legendFormat": "ada4_read",
+          "refId": "O"
+        },
+        {
+          "expr": "servers_freenas_local_geom_stat_geom_latency_ada5_read",
+          "interval": "",
+          "legendFormat": "ada5_read",
+          "refId": "P"
+        },
+        {
+          "expr": "servers_freenas_local_geom_stat_geom_latency_ada0_write",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "ada0_write",
+          "refId": "C"
+        },
+        {
+          "expr": "servers_freenas_local_geom_stat_geom_latency_ada1_write",
+          "interval": "",
+          "legendFormat": "ada1_write",
+          "refId": "F"
+        },
+        {
+          "expr": "servers_freenas_local_geom_stat_geom_latency_ada2_write",
+          "interval": "",
+          "legendFormat": "ada2_write",
+          "refId": "I"
+        },
+        {
+          "expr": "servers_freenas_local_geom_stat_geom_latency_ada3_write",
+          "interval": "",
+          "legendFormat": "ada3_write",
+          "refId": "L"
+        },
+        {
+          "expr": "servers_freenas_local_geom_stat_geom_latency_ada4_write",
+          "interval": "",
+          "legendFormat": "ada4_write",
+          "refId": "Q"
+        },
+        {
+          "expr": "servers_freenas_local_geom_stat_geom_latency_ada5_write",
+          "interval": "",
+          "legendFormat": "ada5_write",
+          "refId": "R"
+        },
+        {
+          "expr": "servers_freenas_local_geom_stat_geom_latency_ada0_delete",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "ada0_delete",
+          "refId": "A"
+        },
+        {
+          "expr": "servers_freenas_local_geom_stat_geom_latency_ada1_delete",
+          "interval": "",
+          "legendFormat": "ada1_delete",
+          "refId": "D"
+        },
+        {
+          "expr": "servers_freenas_local_geom_stat_geom_latency_ada2_delete",
+          "interval": "",
+          "legendFormat": "ada2_delete",
+          "refId": "G"
+        },
+        {
+          "expr": "servers_freenas_local_geom_stat_geom_latency_ada3_delete",
+          "interval": "",
+          "legendFormat": "ada3_delete",
+          "refId": "J"
+        },
+        {
+          "expr": "servers_freenas_local_geom_stat_geom_latency_ada4_delete",
+          "interval": "",
+          "legendFormat": "ada4_delete",
+          "refId": "M"
+        },
+        {
+          "expr": "servers_freenas_local_geom_stat_geom_latency_ada5_delete",
+          "interval": "",
+          "legendFormat": "ada5_delete",
+          "refId": "N"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Disk Latency",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "dtdurationms",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "ada0_write": "red",
+        "ada1_read": "green",
+        "ada1_write": "red",
+        "ada2_read": "green",
+        "ada2_write": "red",
+        "ada3_read": "green",
+        "ada3_write": "red",
+        "ada4_read": "green",
+        "ada4_write": "red",
+        "ada5_read": "green",
+        "ada5_write": "red",
+        "servers_freenas_local_disk_ada0_disk_octets_read{instance=\"ivymike:9108\", job=\"freenas\"}": "green",
+        "servers_freenas_local_disk_ada1_disk_octets_read{instance=\"ivymike:9108\", job=\"freenas\"}": "green",
+        "servers_freenas_local_disk_ada2_disk_octets_read{instance=\"ivymike:9108\", job=\"freenas\"}": "green",
+        "servers_freenas_local_disk_ada3_disk_octets_read{instance=\"ivymike:9108\", job=\"freenas\"}": "green"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 5,
+        "w": 8,
+        "x": 16,
+        "y": 4
+      },
+      "hiddenSeries": false,
+      "id": 19,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "servers_freenas_local_disk_ada0_disk_octets_read",
+          "interval": "",
+          "legendFormat": "ada0_read",
+          "refId": "A"
+        },
+        {
+          "expr": "servers_freenas_local_disk_ada1_disk_octets_read",
+          "interval": "",
+          "legendFormat": "ada1_read",
+          "refId": "B"
+        },
+        {
+          "expr": "servers_freenas_local_disk_ada2_disk_octets_read",
+          "interval": "",
+          "legendFormat": "ada2_read",
+          "refId": "C"
+        },
+        {
+          "expr": "servers_freenas_local_disk_ada3_disk_octets_read",
+          "interval": "",
+          "legendFormat": "ada3_read",
+          "refId": "I"
+        },
+        {
+          "expr": "servers_freenas_local_disk_ada4_disk_octets_read",
+          "interval": "",
+          "legendFormat": "ada4_read",
+          "refId": "D"
+        },
+        {
+          "expr": "servers_freenas_local_disk_ada5_disk_octets_read",
+          "interval": "",
+          "legendFormat": "ada5_read",
+          "refId": "J"
+        },
+        {
+          "expr": "servers_freenas_local_disk_ada0_disk_octets_write",
+          "interval": "",
+          "legendFormat": "ada0_write",
+          "refId": "E"
+        },
+        {
+          "expr": "servers_freenas_local_disk_ada1_disk_octets_write",
+          "interval": "",
+          "legendFormat": "ada1_write",
+          "refId": "F"
+        },
+        {
+          "expr": "servers_freenas_local_disk_ada2_disk_octets_write",
+          "interval": "",
+          "legendFormat": "ada2_write",
+          "refId": "G"
+        },
+        {
+          "expr": "servers_freenas_local_disk_ada3_disk_octets_write",
+          "interval": "",
+          "legendFormat": "ada3_write",
+          "refId": "H"
+        },
+        {
+          "expr": "servers_freenas_local_disk_ada4_disk_octets_write",
+          "interval": "",
+          "legendFormat": "ada4_write",
+          "refId": "K"
+        },
+        {
+          "expr": "servers_freenas_local_disk_ada5_disk_octets_write",
+          "interval": "",
+          "legendFormat": "ada5_write",
+          "refId": "L"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Disk IO",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "Bps",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 0,
+        "y": 9
+      },
+      "hiddenSeries": false,
+      "id": 12,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "servers_freenas_local_zfs_arc_v2_arcstat_ratio_arc_hits",
+          "interval": "",
+          "legendFormat": "Ratio",
+          "refId": "E"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "ARC Hit Ratio",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "percent",
+          "label": null,
+          "logBase": 1,
+          "max": "100",
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Hit": "purple",
+        "Miss": "red"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 12,
+        "y": 9
+      },
+      "hiddenSeries": false,
+      "id": 14,
+      "legend": {
+        "avg": false,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "servers_freenas_local_zfs_arc_v2_gauge_arcstats_raw_demand_demand_data_hits",
+          "interval": "",
+          "legendFormat": "Hit",
+          "refId": "A"
+        },
+        {
+          "expr": "servers_freenas_local_zfs_arc_v2_gauge_arcstats_raw_demand_demand_data_misses",
+          "interval": "",
+          "legendFormat": "Miss",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "ARC Requests (demand_data)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Hit": "purple",
+        "Miss": "red"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 18,
+        "y": 9
+      },
+      "hiddenSeries": false,
+      "id": 15,
+      "legend": {
+        "avg": false,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "servers_freenas_local_zfs_arc_v2_gauge_arcstats_raw_prefetch_prefetch_data_hits",
+          "interval": "",
+          "legendFormat": "Hit",
+          "refId": "A"
+        },
+        {
+          "expr": "servers_freenas_local_zfs_arc_v2_gauge_arcstats_raw_prefetch_prefetch_data_misses",
+          "interval": "",
+          "legendFormat": "Miss",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "ARC Requests (prefetch_data)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 5,
+        "w": 5,
+        "x": 0,
+        "y": 14
+      },
+      "hiddenSeries": false,
+      "id": 28,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": false,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 0.5,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "(servers_freenas_local_cputemp_0_temperature - 2731.5)/10",
+          "interval": "",
+          "legendFormat": "cputemp_0",
+          "refId": "A"
+        },
+        {
+          "expr": "(servers_freenas_local_cputemp_1_temperature - 2731.5)/10",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "cputemp_1",
+          "refId": "B"
+        },
+        {
+          "expr": "(servers_freenas_local_cputemp_2_temperature - 2731.5)/10",
+          "interval": "",
+          "legendFormat": "cputemp_2",
+          "refId": "C"
+        },
+        {
+          "expr": "(servers_freenas_local_cputemp_3_temperature - 2731.5)/10",
+          "interval": "",
+          "legendFormat": "cputemp_3",
+          "refId": "D"
+        },
+        {
+          "expr": "(servers_freenas_local_cputemp_4_temperature - 2731.5)/10",
+          "interval": "",
+          "legendFormat": "cputemp_4",
+          "refId": "E"
+        },
+        {
+          "expr": "(servers_freenas_local_cputemp_5_temperature - 2731.5)/10",
+          "interval": "",
+          "legendFormat": "cputemp_5",
+          "refId": "F"
+        },
+        {
+          "expr": "(servers_freenas_local_cputemp_6_temperature - 2731.5)/10",
+          "interval": "",
+          "legendFormat": "cputemp_6",
+          "refId": "G"
+        },
+        {
+          "expr": "(servers_freenas_local_cputemp_7_temperature - 2731.5)/10",
+          "interval": "",
+          "legendFormat": "cputemp_7",
+          "refId": "H"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "CPU Temps",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "celsius",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 5,
+        "w": 7,
+        "x": 5,
+        "y": 14
+      },
+      "hiddenSeries": false,
+      "id": 2,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sort": null,
+        "sortDesc": null,
+        "total": false,
+        "values": true
+      },
+      "lines": false,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 0.5,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "servers_freenas_local_disktemp_ada0_temperature",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "ada0",
+          "refId": "A"
+        },
+        {
+          "expr": "servers_freenas_local_disktemp_ada1_temperature",
+          "interval": "",
+          "legendFormat": "ada1",
+          "refId": "B"
+        },
+        {
+          "expr": "servers_freenas_local_disktemp_ada2_temperature",
+          "interval": "",
+          "legendFormat": "ada2",
+          "refId": "C"
+        },
+        {
+          "expr": "servers_freenas_local_disktemp_ada3_temperature",
+          "interval": "",
+          "legendFormat": "ada3",
+          "refId": "D"
+        },
+        {
+          "expr": "servers_freenas_local_disktemp_ada4_temperature",
+          "interval": "",
+          "legendFormat": "ada4",
+          "refId": "E"
+        },
+        {
+          "expr": "servers_freenas_local_disktemp_ada5_temperature",
+          "interval": "",
+          "legendFormat": "ada5",
+          "refId": "F"
+        }
+      ],
+      "thresholds": [
+        {
+          "colorMode": "critical",
+          "fill": true,
+          "line": true,
+          "op": "gt",
+          "value": 60,
+          "yaxis": "left"
+        }
+      ],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Drive Temperatures",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "degree",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Used": "red",
+        "time-machine free": "green",
+        "time-machine used": "red"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bits"
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 12,
+        "y": 14
+      },
+      "hiddenSeries": false,
+      "id": 24,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pluginVersion": "7.0.0",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "servers_freenas_local_df_mnt_pool_1_nas_share_df_complex_free",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Free",
+          "refId": "D"
+        },
+        {
+          "expr": "servers_freenas_local_df_mnt_pool_1_nas_share_df_complex_used",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Used",
+          "refId": "E"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "nas-share",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [],
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Used": "red",
+        "time-machine free": "green",
+        "time-machine used": "red"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bits"
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 18,
+        "y": 14
+      },
+      "hiddenSeries": false,
+      "id": 23,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pluginVersion": "7.0.0",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "servers_freenas_local_df_mnt_pool_1_time_machine_df_complex_free",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Free",
+          "refId": "D"
+        },
+        {
+          "expr": "servers_freenas_local_df_mnt_pool_1_time_machine_df_complex_used",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Used",
+          "refId": "E"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "time-machine",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [],
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 25,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {
+    "hidden": false,
+    "refresh_intervals": [
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ]
+  },
+  "timezone": "",
+  "title": "FreeNAS",
+  "uid": "6IAIaKeWz",
+  "version": 72
+}

@@ -23,13 +23,13 @@ scrape_configs:
       source: [average]
     honor_labels: true
     static_configs:
-      - targets: ["192.168.2.39:19999"]
+      - targets: ["192.168.2.67:19999"]
 
   # Graphite to Prometheus exporter for FreeNAS data
   - job_name: "freenas"
     honor_labels: true
     static_configs:
-      - targets: ["192.168.2.39:9108"]
+      - targets: ["192.168.2.67:9108"]
 
   # SNMP to Prometheus exporter for EdgeRouter metrics
   # Copied & modified these configs from https://github.com/prometheus/snmp_exporter
